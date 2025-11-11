@@ -1,17 +1,18 @@
 /* === Jungle Decision Game Theme === */
 
-/* 1. Allgemeines Layout */
+/* === 1. Allgemeines Layout === */
 html, body {
   height: 100%;
   margin: 0;
   padding: 0;
   background-color: #000;
   color: #f0f0f0;
-  font-family: 'Rye', cursive;
-  overflow-y: auto; /* Scrollen wieder aktivieren */
+  font-family: 'Rye', cursive;     /* Schriftart hier ändern */
+  font-size: 18px;                 /* Grundschriftgröße */
+  overflow-y: auto;                /* Scrollen aktivieren */
 }
 
-/* 2. Hintergrundbild-Ebene */
+/* === 2. Hintergrundbild-Ebene === */
 body::before {
   content: "";
   position: fixed;
@@ -19,24 +20,36 @@ body::before {
   left: 0;
   width: 100%;
   height: 100%;
-  background: url('images/default-bg.jpg') center/cover no-repeat;
+  background: url('Images/Hintergrund_Deinschicksalimdschungel.png') center/cover no-repeat;
   opacity: 0.5;
   z-index: -1; /* Hintergrund hinter Text */
 }
 
-/* 3. Text- & Linkgestaltung */
+/* === 3. Text- & Layoutgestaltung === */
 tw-story, tw-passage {
   display: block;
-  padding: 3em 10%;
-  text-align: center;
+  padding: 3em 2em;
+  text-align: left;
   min-height: 100vh; /* immer mindestens eine Bildschirmhöhe */
   box-sizing: border-box;
+  line-height: 1.2; 
+
+  /* Neue Desktop-Layout-Einstellungen */
+  max-width: 2000px;   /* maximale Textbreite */
+  margin: 0 auto;     /* zentriert die Textspalte */
+  font-size: 1.1rem;  /* Schriftgröße im Text */
+}
+h1 {
+  font-family: 'Rye', cursive;
+  font-size: 2.5rem;
+  color: #358353;
+  text-shadow: 0 0 5px #303830;
+  margin-bottom: 1em;
 }
 
 /* === Entscheidungsauswahl (Links) === */
 
 /* normale Entscheidung */
-/* === Entscheidungstexte (Harlowe) === */
 tw-link,
 tw-link a,
 tw-link a:link,
@@ -45,10 +58,11 @@ tw-link a:visited {
   text-decoration: none !important;
   background-color: rgba(100, 100, 100, 0.2) !important;
   border: 1px solid #666 !important;
-  padding: 0.5em 1.2em !important;
+  padding: 0.3em 0.9em !important;
   border-radius: 0.6em !important;
   display: inline-block !important;
   transition: all 0.3s ease !important;
+  font-size: 0.9rem;
 }
 
 tw-link:hover,
@@ -59,9 +73,7 @@ tw-link a:hover {
   text-shadow: 0 0 6px #999 !important;
 }
 
-
-
-/* Erfolgs- & Fehlschlag-Stile */
+/* === Erfolgs- & Fehlschlag-Stile === */
 .success {
   color: #00ff66;
   font-weight: bold;
@@ -79,7 +91,7 @@ tw-link a:hover {
   color: #aaa;
 }
 
-/* Übergang zwischen Passagen */
+/* === Übergang zwischen Passagen === */
 tw-passage {
   animation: fadeIn 1s ease;
 }
@@ -87,4 +99,13 @@ tw-passage {
 @keyframes fadeIn {
   from { opacity: 0; }
   to { opacity: 1; }
+}
+
+/* === Optionale Responsive-Anpassungen === */
+@media (max-width: 768px) {
+  tw-story, tw-passage {
+    font-size: 1rem;
+    padding: 2em 1.5em;
+    max-width: 95%;
+  }
 }
